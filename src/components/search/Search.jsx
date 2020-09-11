@@ -29,7 +29,9 @@ const Search = ({ defaultSearchTerm }) => {
             srsearch: searchTerm,
           },
         });
-        setResults(results.data.query.search);
+        if (debouncedSearchTerm) {
+          setResults(results.data.query.search);
+        }
       } catch (err) {
         console.log(err);
       }

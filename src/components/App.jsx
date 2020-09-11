@@ -3,6 +3,8 @@ import Accordion from './accordion/Accordion';
 import Search from './search/Search';
 import TextColor from './dropdown/TextColor';
 import Translate from '../components/translate/Translate';
+import Route from '../components/nav/Route';
+import Navbar from '../components/nav/Navbar';
 import generateRandomId from '../util/generateRandomId';
 
 const items = [
@@ -61,16 +63,48 @@ const colors = [
   },
 ]
 
+const navItems = [
+  {
+    id: generateRandomId(),
+    href: '/',
+    label: 'Accordion',
+  },
+  {
+    id: generateRandomId(),
+    href: '/list',
+    label: 'List',
+  },
+  {
+    id: generateRandomId(),
+    href: '/dropdown',
+    label: 'Dropdown',
+  },
+  {
+    id: generateRandomId(),
+    href: '/translate',
+    label: 'Translate',
+  },
+]
+
 const App = () => {
   return (
     <div>
       <h1>Widgets</h1>
-      <Accordion items={items}/>
-      <Search defaultSearchTerm='anime' />
-      <TextColor colors={colors} />
-      <Translate />
+      <Navbar navItems={navItems} />
+      <Route path="/">
+        <Accordion items={items} />
+      </Route>
+      <Route path="/list">
+        <Search defaultSearchTerm="" />
+      </Route>
+      <Route path="/dropdown">
+        <TextColor colors={colors} />
+      </Route>
+      <Route path="/translate">
+        <Translate />
+      </Route>
     </div>
-  )
+  );
 }
 
 export default App;

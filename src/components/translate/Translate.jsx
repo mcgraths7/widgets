@@ -1,53 +1,66 @@
 import React, { useState } from 'react';
 import Dropdown from '../dropdown/Dropdown';
 import Convert from './Convert';
+import generateRandomId from '../../util/generateRandomId';
 
 const languageOptions = [
   {
+    id: generateRandomId(),
     label: 'Czech',
     value: 'cs'
   },
   {
+    id: generateRandomId(),
     label: 'Danish',
     value: 'da'
   },
   {
+    id: generateRandomId(),
     label: 'Dutch',
     value: 'nl'
   },
   {
+    id: generateRandomId(),
     label: 'English',
     value: 'en'
   },
   {
+    id: generateRandomId(),
     label: 'Esperanto',
     value: 'eo'
   },
   {
+    id: generateRandomId(),
     label: 'Finnish',
     value: 'fi'
   },
   {
+    id: generateRandomId(),
     label: 'French',
     value: 'fr'
   },
   {
+    id: generateRandomId(),
     label: 'German',
     value: 'de'
   },
   {
+    id: generateRandomId(),
     label: 'Italian',
     value: 'it'
   },
   {
+    id: generateRandomId(),
     label: 'Japanese',
     value: 'ja'
   },
   {
+    id: generateRandomId(),
     label: 'Korean',
     value: 'ko'
   },
   {
+    id: generateRandomId(),
     label: 'Spanish',
     value: 'es'
   },
