@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Accordion from './accordion/Accordion';
 import Search from './search/Search';
-import Dropdown from './dropdown/Dropdown';
+import TextColor from './dropdown/TextColor';
+import Translate from '../components/translate/Translate';
 import generateRandomId from '../util/generateRandomId';
 
 const items = [
@@ -22,7 +23,7 @@ const items = [
   }
 ]
 
-const options = [
+const colors = [
   {
     id: generateRandomId(),
     label: 'Red',
@@ -61,18 +62,13 @@ const options = [
 ]
 
 const App = () => {
-  const [selection, setSelection] = useState(options[0]);
   return (
     <div>
       <h1>Widgets</h1>
-      {/* <Accordion items={items}/>
-      <Search /> defaultSearchTerm='anime' */}
-      <Dropdown
-        options={options}
-        dropdownText="Select a Color"
-        selection={selection}
-        onSelectionChange={setSelection}
-      />
+      <Accordion items={items}/>
+      <Search defaultSearchTerm='anime' />
+      <TextColor colors={colors} />
+      <Translate />
     </div>
   )
 }

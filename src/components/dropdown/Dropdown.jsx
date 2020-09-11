@@ -26,18 +26,6 @@ const Dropdown = ({ options, dropdownText, selection, onSelectionChange }) => {
   }, [])
 
   /*
-    I initialize another reference, this time to the text which I want to 
-    color match with the current selection. I then set up another useEffect hook
-    which sets the color style on the ref to the current value of the selection  
-  */
-
-  const textRef = useRef();
-
-  useEffect(() => {
-    textRef.current.style.color = selection.value;
-  }, [selection])
-
-  /*
     I render a list of divs which make up the dropdown menu, each of these
     has a click event handler which sets itself to the selection state passed in
     from the App component
@@ -66,7 +54,7 @@ const Dropdown = ({ options, dropdownText, selection, onSelectionChange }) => {
     selection: 'visible active',
     menu: 'visible transition'
   } : {
-    selection: '',
+    option: '',
     menu: ''
   };
 
@@ -75,7 +63,7 @@ const Dropdown = ({ options, dropdownText, selection, onSelectionChange }) => {
       <div className="field">
         <label className="label">{dropdownText}</label>
         <div
-          className={`ui selection dropdown ${selectionClasses.selection}`}
+          className={`ui selection dropdown ${selectionClasses.option}`}
           onClick={() => setIsOpen(!isOpen)}>
           <i className="dropdown icon"></i>
           <div className="text">{selection.label}</div>
@@ -84,7 +72,6 @@ const Dropdown = ({ options, dropdownText, selection, onSelectionChange }) => {
           </div>
         </div>
       </div>
-      <p>This text is now <span ref={textRef}>{selection.label}</span></p>
     </div>
   );
 }
