@@ -1,68 +1,39 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Some Reusable Widgets
 
-## Available Scripts
+This is an app to demo reusable components in React
 
-In the project directory, you can run:
+You can view it live [here](https://widgets-lemon.vercel.app)
 
-### `yarn start`
+## Requirements
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+All of these widgets make use of Semantic UI. If you'd like to use any of these widgets, you'll need to make sure you include the Semantic UI CSS file (available at cdnjs)
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+## Widgets
 
-### `yarn test`
+### Accordion
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+The Accordion component takes an "options" object as a prop, which contains an array of elements which has both 'title' and 'content' properties
 
-### `yarn build`
+The 'title' is the text visible when the accordion is closed, the 'content' is what you see when it is expanded
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Search
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+The Search by itself takes no props, but can easily be configured to take a default search term. The Search component debounces the input to reduce the amount of requests.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+When the debounced time passes, it sends a request to wikipedia and displays the top 10 results, formatted.
 
-### `yarn eject`
+This component makes use of "dangerouslySetInnerHTML" which is not recommended usually, but wikipedia returns html tags in their response, rather than plain text.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+We make use of this and apply some style to make the search term bold in the results
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Dropdown
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+This dropdown uses an event listener attached to the body to determine when to close. In the context of the deployed app, it's used to set the color of a span, using 'useRef'
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+### Translate
 
-## Learn More
+This uses the previously mentioned Dropdown component and the Google Translate API. If you're using this in your own application, you will need to generate your own API key.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+The translate API detects the source language, so most of the time, it should be able to pick it up without specifying.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `yarn build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+However, if there is any doubt or ambiguity, it's very easy to implement - simply add a second dropdown - one for source language, and one for destination language
