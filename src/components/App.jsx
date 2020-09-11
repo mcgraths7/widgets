@@ -10,18 +10,18 @@ import generateRandomId from '../util/generateRandomId';
 const items = [
   {
     id: generateRandomId(),
-    title: 'What is React?',
-    content: 'React is a JavaScript library for creating User Interfaces'
+    title: 'What is this?',
+    content: 'This is an app to display a few reusable widgets'
   },
   {
     id: generateRandomId(),
-    title: 'Who created React?',
-    content: 'React was open sourced by Facebook'
+    title: 'Why did you make this?',
+    content: 'I made this to learn more about components in react, as well as how routing works'
   },
   {
     id: generateRandomId(),
-    title: 'Who cares about React?',
-    content: 'Apparently a lot of people'
+    title: 'Does this use react-router?',
+    content: 'Nope! All of the routing is home baked'
   }
 ]
 
